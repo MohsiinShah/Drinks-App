@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/drinkThumbnail"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+        app:strokeColor="@color/transparent"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/drinkName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/drinkInstructions"
+        app:layout_constraintStart_toEndOf="@id/drinkThumbnail"
+        app:layout_constraintStart_toStartOf="@id/drinkInstructions" />
+
+    <TextView
+        android:id="@+id/drinkInstructions"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:ellipsize="end"
+        android:textColor="@color/light_gray"
+        android:maxLines="1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/drinkThumbnail"
+        app:layout_constraintStart_toEndOf="@id/drinkThumbnail"
+        app:layout_constraintTop_toTopOf="@id/drinkThumbnail" />
+
+    <LinearLayout
+        android:id="@+id/alcoholView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/drinkName">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/light_gray"
+            android:text="@string/alcohol" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/alcoholCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/light_gray"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/favoriteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toStartOf="@id/alcoholView"
+        app:layout_constraintTop_toTopOf="@id/alcoholView"
+        app:layout_constraintBottom_toBottomOf="@id/alcoholView"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/drinkThumbnail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
