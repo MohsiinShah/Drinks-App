@@ -93,7 +93,7 @@ class HomeFragment : Fragment(), HomeNavigator {
         binding.apply {
             lifecycleScope.launch {
                 viewModel.getDrinks(searchText, callByName).collect { result ->
-                    homeAdapter?.setData(result.data)
+                    homeAdapter?.submitList(result.data)
                     progressBar.isVisible = result is Resource.Loading
                     errorTv.isVisible = result is Resource.Error
                     errorTv.text = result.error?.localizedMessage

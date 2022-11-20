@@ -14,16 +14,7 @@ import com.mohsin.drinksapp.data.models.Drink
 import com.mohsin.drinksapp.databinding.DrinkItemBinding
 
 class HomeAdapter(val homeNavigator: HomeNavigator) :
-    ListAdapter<Drink, HomeAdapter.HomeViewHolder>(DrinkComparator()), Filterable {
-
-    private var list = listOf<Drink>()
-
-    fun setData(drinks: List<Drink>?){
-        if (drinks != null) {
-            list = drinks
-        }
-        submitList(drinks)
-    }
+    ListAdapter<Drink, HomeAdapter.HomeViewHolder>(DrinkComparator()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val binding =
@@ -90,30 +81,4 @@ class HomeAdapter(val homeNavigator: HomeNavigator) :
             oldItem == newItem
     }
 
-    override fun getFilter(): Filter {
-        return customFilter
-    }
-
-    private val customFilter = object : Filter() {
-        override fun performFiltering(constraint: CharSequence?): FilterResults {
-            val filteredList = mutableListOf<Drink>()
-            if (constraint == null || constraint.isEmpty()) {
-                filteredList.addAll(list)
-            } else {
-                for (item in list) {
-                    if (item.strDrink.lowercase().startsWith(constraint.toString().lowercase())) {
-                        filteredList.add(item)
-                    }
-                }
-            }
-            val results = FilterResults()
-            results.values = filteredList
-            return results
-        }
-
-        override fun publishResults(constraint: CharSequence?, filterResults: FilterResults?) {
-            submitList(filterResults?.values as MutableList<Drink>)
-        }
-
-    }
 }
