@@ -7,3 +7,4 @@ App fully supports offline-storage, all api calls are cached into ROOM persistan
 Favorite drinks are stored into a separate entity, and its images are stored into the app's internal storage</b>, as it is recommended not to store the images into the database itself, I'm only saving the internal file path into ROOM database for the favorite drinks. User can remove any favorite drink from the favorites fragment.
 
 
+P.s - I need to look into the custom layout notifications first before implementing those and due to some time constraint I'm unable to finish the notification work today, I have managed to generate a notification with custom layout but I believe I can do better once I've studied it properly. BOOT completion is not handled in the code yet. 
